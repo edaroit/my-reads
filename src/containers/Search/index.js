@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import * as BooksAPI from '../../BooksAPI'
-import BookList from '../../components/BookList'
+import Shelf from '../../components/Shelf'
 import SearchBar from '../../components/SearchBar'
 
 class Search extends Component {
@@ -12,7 +12,6 @@ class Search extends Component {
   searchBook = async ({ target }) => {
     const { value } = target
     const books = await BooksAPI.search(value)
-    console.log(books)
     this.setState({ books })
   }
 
@@ -23,7 +22,7 @@ class Search extends Component {
     return (
       <div>
         <SearchBar onChange={this.searchBook} />
-        <BookList books={books} onSelect={onSelect} />
+        <Shelf books={books} onSelect={onSelect} />
       </div>
     )
   }

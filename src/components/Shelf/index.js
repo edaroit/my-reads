@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Book from '../Book'
 
-const BookList = ({ books, onSelect }) => (
+const Shelf = ({ books, onSelect }) => (
   <div>
     {
       books.map(book => (
@@ -20,14 +20,14 @@ const BookList = ({ books, onSelect }) => (
   </div>
 )
 
-BookList.propTypes = {
+Shelf.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object),
   onSelect: PropTypes.func,
 }
 
-BookList.defaultProps = {
+Shelf.defaultProps = {
   books: [],
   onSelect: () => {},
 }
 
-export default BookList
+export default Shelf

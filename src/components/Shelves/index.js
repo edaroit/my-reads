@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import BookList from '../BookList'
+import Shelf from '../Shelf'
 
 const Shelves = ({ currentlyReading, wantToRead, read }) => (
   <div>
-    <BookList books={currentlyReading} />
-    <BookList books={wantToRead} />
-    <BookList books={read} />
+    <Shelf books={currentlyReading} />
+    <Shelf books={wantToRead} />
+    <Shelf books={read} />
     <Link to="/search">Search</Link>
   </div>
 )
