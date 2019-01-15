@@ -5,20 +5,7 @@ import Book from '../Book'
 const Shelf = ({ books, onSelect }) => (
   <div>
     {
-      books.map(book => (
-        <div key={book.id}>
-          <Book {...book} />
-          <select
-            defaultValue={book.shelf}
-            onChange={event => onSelect(book.id, event.target.value)}
-          >
-            <option value="none">None</option>
-            <option value="currentlyReading">Currently Reading</option>
-            <option value="wantToRead">Want to Read</option>
-            <option value="read">Read</option>
-          </select>
-        </div>
-      ))
+      books.map(book => (<Book key={book.id} {...book} onSelect={onSelect} />))
     }
   </div>
 )
