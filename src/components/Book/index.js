@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Book = ({
-  id, title, authors, shelf, onSelect,
+  id, imageLinks, title, authors, shelf, onSelect,
 }) => (
   <div>
+    <img src={imageLinks.thumbnail} alt="Book" />
     {title}
     {authors}
     <select
@@ -21,6 +22,7 @@ const Book = ({
 
 Book.propTypes = {
   id: PropTypes.string,
+  imageLinks: PropTypes.objectOf(PropTypes.string),
   title: PropTypes.string,
   authors: PropTypes.arrayOf(PropTypes.string),
   shelf: PropTypes.string,
@@ -29,6 +31,7 @@ Book.propTypes = {
 
 Book.defaultProps = {
   id: null,
+  imageLinks: null,
   title: null,
   authors: [],
   shelf: null,
