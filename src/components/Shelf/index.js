@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Book from '../Book'
 
+import './shelf.css'
+
 const Shelf = ({ books, onSelect }) => (
-  <div>
+  <div className="shelf">
     {
       books.map(book => (<Book key={book.id} {...book} onSelect={onSelect} />))
     }

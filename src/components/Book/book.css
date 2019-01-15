@@ -1,0 +1,6 @@
+.book {
+  display: flex;
+  background: white;
+  width: 300px;
+  height: 300px;
+}

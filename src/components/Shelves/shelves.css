@@ -1,0 +1,4 @@
+.shelves {
+  display: flex;
+  flex-direction: column;
+}
