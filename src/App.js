@@ -13,7 +13,11 @@ class App extends Component {
     },
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.fetchBooks()
+  }
+
+  fetchBooks = async () => {
     const books = await BooksAPI.getAll()
     const currentlyReading = books.filter(book => book.shelf === 'currentlyReading')
     const wantToRead = books.filter(book => book.shelf === 'wantToRead')
@@ -21,15 +25,10 @@ class App extends Component {
     this.setState({ books: { currentlyReading, wantToRead, read } })
   }
 
-  addBook = async (bookId, shelf) => {
+  updateBook = async (bookId, shelf) => {
     const book = await BooksAPI.get(bookId)
     await BooksAPI.update(book, shelf)
-    this.setState(currentState => ({
-      books: {
-        ...currentState.books,
-        [shelf]: [...currentState.books[shelf], book],
-      },
-    }))
+    this.fetchBooks()
   }
 
   render() {
@@ -40,7 +39,7 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={() => <Shelves {...books} />}
+          render={() => <Shelves {...books} onSelect={this.updateBook} />}
         />
         <Route
           exact
@@ -48,7 +47,7 @@ class App extends Component {
           render={({ history }) => (
             <Search
               onSelect={(bookId, shelf) => {
-                this.addBook(bookId, shelf)
+                this.updateBook(bookId, shelf)
                 history.push('/')
               }}
             />
