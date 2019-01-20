@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Title from '../Title'
+
 import './book.css'
 
 const Book = ({
@@ -9,12 +11,12 @@ const Book = ({
     <figure>
       <img src={imageLinks.thumbnail} alt="Book" />
     </figure>
-    <div>
-      <h2>
+    <div className="book-information__title">
+      <Title as="h2" align="left">
         {title}
-      </h2>
-      <span>
-        {authors}
+      </Title>
+      <span className="book-information__authors">
+        {authors.join(', ')}
       </span>
       <select
         defaultValue={shelf}

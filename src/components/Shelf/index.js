@@ -1,15 +1,16 @@
 import React from 'react'
 import Book from '../Book'
 import Card from '../Card'
+import Title from '../Title'
 
 import './shelf.css'
 
 const Shelf = ({ title, books, onSelect }) => (
   <Card>
     <div className="shelf">
-      <h1 className="shelf__title">
+      <Title>
         {title}
-      </h1>
+      </Title>
       <div className="shelf__books">
         {
           books.map(book => (<Book key={book.id} {...book} onSelect={onSelect} />))
