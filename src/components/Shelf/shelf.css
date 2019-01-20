@@ -1,16 +1,9 @@
 .shelf {
-  padding: 1rem;
-  border: 0;
-  background: #fff;
-  margin: 1rem;
-}
-
-.shelf__title {
-  text-align: center;
+  max-width: 1350px;
 }
 
 .shelf__books {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-flow: row wrap;
 }
