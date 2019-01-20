@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import * as BooksAPI from '../../BooksAPI'
 import Shelf from '../../components/Shelf'
 import SearchBar from '../../components/SearchBar'
@@ -26,14 +25,6 @@ class Search extends Component {
       </div>
     )
   }
-}
-
-Search.propTypes = {
-  onSelect: PropTypes.func,
-}
-
-Search.defaultProps = {
-  onSelect: () => {},
 }
 
 export default Search
