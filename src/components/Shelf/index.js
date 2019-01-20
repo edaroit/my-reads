@@ -5,9 +5,11 @@ import './shelf.css'
 
 const Shelf = ({ books, onSelect }) => (
   <div className="shelf">
-    {
-      books.map(book => (<Book key={book.id} {...book} onSelect={onSelect} />))
-    }
+    <div className="shelf__books">
+      {
+        books.map(book => (<Book key={book.id} {...book} onSelect={onSelect} />))
+      }
+    </div>
   </div>
 )
 

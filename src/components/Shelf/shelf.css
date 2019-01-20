@@ -1,4 +1,8 @@
 .shelf {
+  padding: 1rem;
+}
+
+.shelf__books {
   display: flex;
   flex-direction: row;
 }
