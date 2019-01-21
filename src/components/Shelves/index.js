@@ -8,7 +8,7 @@ const Shelves = ({
   currentlyReading, wantToRead, read, onSelect,
 }) => (
   <div className="shelves">
-    <Link className="search" to="/search">
+    <Link className="search-button" to="/search">
       Add a Book
     </Link>
     <Shelf title="Currently Reading" books={currentlyReading} onSelect={onSelect} />
