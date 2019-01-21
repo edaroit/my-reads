@@ -3,6 +3,8 @@ import * as BooksAPI from '../../BooksAPI'
 import Shelf from '../../components/Shelf'
 import SearchBar from '../../components/SearchBar'
 
+import './search.css'
+
 class Search extends Component {
   state = {
     books: [],
@@ -19,7 +21,7 @@ class Search extends Component {
     const { onSelect } = this.props
 
     return (
-      <div>
+      <div className="search">
         <SearchBar onChange={this.searchBook} />
         <Shelf books={books} onSelect={onSelect} />
       </div>
