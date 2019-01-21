@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from '../../BooksAPI'
 import Shelves from '../../components/Shelves'
 import Search from '../Search'
 
-class Books extends PureComponent {
+class Books extends Component {
   state = {
     books: {
       currentlyReading: [],
