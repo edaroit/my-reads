@@ -1,0 +1,11 @@
+.book-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column nowrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 85vh;
+  max-height: 85vh;
+  min-width: 720px;
+  max-width: 720px;
+}
