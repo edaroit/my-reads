@@ -1,9 +1,0 @@
-.shelf {
-  max-width: 1350px;
-}
-
-.shelf__books {
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: row wrap;
-}
