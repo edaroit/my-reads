@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import * as BooksAPI from '../../BooksAPI'
-import Shelf from '../../components/Shelf'
+import BookList from '../../components/BookList'
 import SearchBar from '../../components/SearchBar'
 
-import './search.css'
+import './add-book.css'
 
-class Search extends Component {
+class AddBook extends Component {
   state = {
     books: [],
   }
@@ -25,12 +25,12 @@ class Search extends Component {
     const { onSelect } = this.props
 
     return (
-      <div className="search">
+      <div className="add-book">
         <SearchBar onChange={this.searchBook} />
-        <Shelf books={books} onSelect={onSelect} />
+        <BookList books={books} onSelect={onSelect} />
       </div>
     )
   }
 }
 
-export default Search
+export default AddBook

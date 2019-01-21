@@ -1,6 +1,6 @@
-.search {
+.add-book {
   display: flex;
   flex-direction: column;
-  min-width: 1350px;
+  min-width: 720px;
   padding-bottom: 1rem;
 }
