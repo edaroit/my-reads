@@ -11,7 +11,9 @@ const Shelves = ({
     <Shelf title="Currently Reading" books={currentlyReading} onSelect={onSelect} />
     <Shelf title="Want to Read" books={wantToRead} onSelect={onSelect} />
     <Shelf title="Read" books={read} onSelect={onSelect} />
-    <Link to="/search">Search</Link>
+    <Link className="search" to="/search">
+      Add a Book
+    </Link>
   </div>
 )
 
