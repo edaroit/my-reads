@@ -1,0 +1,14 @@
+.search-bar {
+  margin: 1rem 0 1rem 0;
+  padding: 1rem;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  border-bottom: solid 1px #ddd;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #2196f3 4%);
+  background-position: -400px 0;
+  background-size: 400px 100%;
+  background-repeat: no-repeat;
+  outline: none;
+  border-radius: 20px;
+}
