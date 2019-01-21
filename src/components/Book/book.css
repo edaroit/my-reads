@@ -6,5 +6,6 @@
 }
 
 .book-information__authors {
-  font-family: "Nunito"
+  font-family: "Nunito";
+  opacity: 0.5;
 }
