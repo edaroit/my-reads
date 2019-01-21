@@ -1,7 +1,8 @@
 .book {
   display: flex;
   background: #fff;
-  width: 450px;
+  min-width: inherit;
+  max-width: inherit;
   height: 250px;
 }
 
