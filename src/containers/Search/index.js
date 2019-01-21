@@ -13,6 +13,10 @@ class Search extends Component {
   searchBook = async ({ target }) => {
     const { value } = target
     const books = await BooksAPI.search(value)
+    if (books == null || books.error) {
+      this.setState({ books: [] })
+      return
+    }
     this.setState({ books })
   }
 
