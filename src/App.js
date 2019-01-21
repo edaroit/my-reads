@@ -1,10 +1,10 @@
 import React from 'react'
 import Layout from './components/Layout'
-import Books from './containers/Books'
+import Library from './containers/Library'
 
 const App = () => (
   <Layout>
-    <Books />
+    <Library />
   </Layout>
 )
 

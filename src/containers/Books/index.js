@@ -1,58 +1,37 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
-import * as BooksAPI from '../../BooksAPI'
-import Shelves from '../../components/Shelves'
-import Search from '../Search'
+import React, { PureComponent } from 'react'
+import { Link } from 'react-router-dom'
 
-class Books extends Component {
+import BookList from '../../components/BookList'
+import TabGroup, { TabGroupItem } from '../../components/TabGroup'
+
+import './books.css'
+
+class Books extends PureComponent {
   state = {
-    books: {
-      currentlyReading: [],
-      wantToRead: [],
-      read: [],
-    },
+    categorySelected: 'wantToRead',
   }
 
-  componentDidMount() {
-    this.fetchBooks()
-  }
-
-  fetchBooks = async () => {
-    const books = await BooksAPI.getAll()
-    const currentlyReading = books.filter(book => book.shelf === 'currentlyReading')
-    const wantToRead = books.filter(book => book.shelf === 'wantToRead')
-    const read = books.filter(book => book.shelf === 'read')
-    this.setState({ books: { currentlyReading, wantToRead, read } })
-  }
-
-  updateBook = async (bookId, shelf) => {
-    const book = await BooksAPI.get(bookId)
-    await BooksAPI.update(book, shelf)
-    this.fetchBooks()
+  updateCategory = (categorySelected) => {
+    this.setState({ categorySelected })
   }
 
   render() {
-    const { books } = this.state
+    const { categorySelected } = this.state
+    const { books, onSelect } = this.props
 
     return (
       <div>
-        <Route
-          exact
-          path="/"
-          render={() => <Shelves {...books} onSelect={this.updateBook} />}
-        />
-        <Route
-          exact
-          path="/search"
-          render={({ history }) => (
-            <Search
-              onSelect={(bookId, shelf) => {
-                this.updateBook(bookId, shelf)
-                history.push('/')
-              }}
-            />
-          )}
-        />
+        <div>
+          <TabGroup>
+            <TabGroupItem onClick={this.updateCategory} value="currentlyReading">Currently Reading</TabGroupItem>
+            <TabGroupItem onClick={this.updateCategory} value="wantToRead">Want to Read</TabGroupItem>
+            <TabGroupItem onClick={this.updateCategory} value="read">Read</TabGroupItem>
+            <Link className="search-button" to="/search">
+              Add a Book
+            </Link>
+          </TabGroup>
+        </div>
+        <BookList title="" books={books[categorySelected]} onSelect={onSelect} />
       </div>
     )
   }
