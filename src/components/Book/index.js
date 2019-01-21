@@ -5,7 +5,7 @@ import Title from '../Title'
 import './book.css'
 
 const Book = ({
-  id, imageLinks, title, authors, shelf, onSelect,
+  id, imageLinks, title, authors = [], shelf, onSelect,
 }) => (
   <div className="book">
     <figure>
