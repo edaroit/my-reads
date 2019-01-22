@@ -5,11 +5,13 @@ import Title from '../Title'
 import './book.css'
 
 const Book = ({
-  id, imageLinks, title, authors = [], shelf, onSelect,
+  id = null, imageLinks = null, title = '', authors = [], shelf = 'none', onSelect = () => {},
 }) => (
   <div className="book">
     <figure>
-      <img src={imageLinks.thumbnail} alt="Book" />
+      {
+        imageLinks && <img src={imageLinks.thumbnail} alt="Book" />
+      }
     </figure>
     <div className="book-information__title">
       <Title as="h2" align="left">
