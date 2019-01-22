@@ -12,6 +12,7 @@
   font-family: 'Nunito';
   color: blue;
   cursor: pointer;
+  font-size: 0.875rem;
 }
 
 .tab-group__item--selected {
