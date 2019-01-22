@@ -4,9 +4,24 @@
   min-width: inherit;
   max-width: inherit;
   height: 250px;
+  padding-bottom: 1rem;
+}
+
+.book-information {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-information__title {
+  margin-bottom: 0.5rem;
 }
 
 .book-information__authors {
   font-family: "Nunito";
   opacity: 0.5;
+}
+
+.book-information__select {
+  align-self: baseline;
 }

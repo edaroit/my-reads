@@ -13,14 +13,15 @@ const Book = ({
         imageLinks && <img src={imageLinks.thumbnail} alt="Book" />
       }
     </figure>
-    <div className="book-information__title">
-      <Title as="h2" align="left">
+    <div className="book-information">
+      <Title as="h2" className="book-information__title" align="left">
         {title}
       </Title>
       <span className="book-information__authors">
         {authors.join(', ')}
       </span>
       <select
+        className="book-information__select"
         defaultValue={shelf}
         onChange={event => onSelect(id, event.target.value)}
       >
