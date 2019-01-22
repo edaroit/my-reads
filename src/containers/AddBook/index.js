@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { debounce } from 'lodash'
 
 import BookList from '../../components/BookList'
 import SearchBar from '../../components/SearchBar'
@@ -13,14 +14,18 @@ class AddBook extends Component {
     books: [],
   }
 
-  searchBook = async ({ target }) => {
-    const { value } = target
+  searchBook = debounce(async (value) => {
     const books = await BooksAPI.search(value)
     if (books == null || books.error) {
       this.setState({ books: [] })
       return
     }
     this.setState({ books })
+  }, 100)
+
+  handleChange = ({ target }) => {
+    const { value } = target
+    this.searchBook(value)
   }
 
   render() {
@@ -33,7 +38,7 @@ class AddBook extends Component {
           <Link className="add-book-header__back-button" to="/">
             Back
           </Link>
-          <SearchBar className="add-book-header__search-bar" onChange={this.searchBook} />
+          <SearchBar className="add-book-header__search-bar" onChange={this.handleChange} />
         </div>
         <BookList books={books} onSelect={onSelect} />
       </div>
