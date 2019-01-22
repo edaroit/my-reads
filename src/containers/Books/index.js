@@ -23,9 +23,27 @@ class Books extends PureComponent {
       <div>
         <div>
           <TabGroup>
-            <TabGroupItem onClick={this.updateCategory} value="currentlyReading">Currently Reading</TabGroupItem>
-            <TabGroupItem onClick={this.updateCategory} value="wantToRead">Want to Read</TabGroupItem>
-            <TabGroupItem onClick={this.updateCategory} value="read">Read</TabGroupItem>
+            <TabGroupItem
+              onClick={this.updateCategory}
+              value="currentlyReading"
+              selected={categorySelected === 'currentlyReading'}
+            >
+              Currently Reading
+            </TabGroupItem>
+            <TabGroupItem
+              onClick={this.updateCategory}
+              value="wantToRead"
+              selected={categorySelected === 'wantToRead'}
+            >
+              Want to Read
+            </TabGroupItem>
+            <TabGroupItem
+              onClick={this.updateCategory}
+              value="read"
+              selected={categorySelected === 'read'}
+            >
+              Read
+            </TabGroupItem>
             <Link className="search-button" to="/search">
               Add a Book
             </Link>

@@ -13,3 +13,7 @@
   color: blue;
   cursor: pointer;
 }
+
+.tab-group__item--selected {
+  font-size: 1.125rem;
+}
