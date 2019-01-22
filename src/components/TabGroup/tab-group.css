@@ -4,3 +4,12 @@
   list-style: none;
   padding: 0;
 }
+
+.tab-group__item {
+  align-self: center;
+  border-right: 1px solid black;
+  padding-right: 3rem;
+  font-family: 'Nunito';
+  color: blue;
+  cursor: pointer;
+}
