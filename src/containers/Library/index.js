@@ -35,6 +35,7 @@ class Library extends Component {
 
   render() {
     const { books } = this.state
+    const addedBooks = [...books.currentlyReading, ...books.wantToRead, ...books.read]
 
     return (
       <div>
@@ -48,6 +49,7 @@ class Library extends Component {
           path="/search"
           render={({ history }) => (
             <AddBook
+              addedBooks={addedBooks}
               onSelect={(bookId, shelf) => {
                 this.updateBook(bookId, shelf)
                 history.push('/')

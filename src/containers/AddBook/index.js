@@ -15,13 +15,27 @@ class AddBook extends Component {
   }
 
   searchBook = debounce(async (value) => {
-    const books = await BooksAPI.search(value)
-    if (books == null || books.error) {
+    const booksFound = await BooksAPI.search(value)
+    if (booksFound == null || booksFound.error) {
       this.setState({ books: [] })
       return
     }
+
+    const books = booksFound.map(book => ({
+      ...book,
+      shelf: this.getShelfFor(book.id),
+    }))
+
     this.setState({ books })
   }, 100)
+
+
+  getShelfFor = (bookId) => {
+    const { addedBooks } = this.props
+    const bookFound = addedBooks.find(book => book.id === bookId)
+    if (bookFound) return bookFound.shelf
+    return 'none'
+  }
 
   handleChange = ({ target }) => {
     const { value } = target
