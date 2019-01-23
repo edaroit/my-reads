@@ -15,11 +15,3 @@ $ yarn install
 ```
 $ yarn start
 ```
-
----
-
-### Running Tests
-
-```
-$ yarn test
-```
