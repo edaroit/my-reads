@@ -2,18 +2,17 @@ import React from 'react'
 
 import Book from '../Book'
 import Card from '../Card'
-import Title from '../Title'
+import Loader from '../Loader'
 
 import './book-list.css'
 
-const BookList = ({ title, books, onSelect }) => (
+const BookList = ({ books, isLoading, onSelect }) => (
   <Card>
-    <Title>
-      {title}
-    </Title>
     <div className="book-list">
       {
-        books.map(book => (<Book key={book.id} {...book} onSelect={onSelect} />))
+        isLoading
+          ? <Loader />
+          : books.map(book => (<Book key={book.id} {...book} onSelect={onSelect} />))
       }
     </div>
   </Card>

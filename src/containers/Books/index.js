@@ -7,40 +7,33 @@ import TabGroup, { TabGroupItem } from '../../components/TabGroup'
 import './books.css'
 
 class Books extends PureComponent {
-  state = {
-    categorySelected: 'wantToRead',
-  }
-
-  updateCategory = (categorySelected) => {
-    this.setState({ categorySelected })
-  }
-
   render() {
-    const { categorySelected } = this.state
-    const { books, onSelect } = this.props
+    const {
+      books, shelf, isLoading, onUpdateBook, onUpdateShelf,
+    } = this.props
 
     return (
       <div>
         <div>
           <TabGroup>
             <TabGroupItem
-              onClick={this.updateCategory}
+              onClick={onUpdateShelf}
               value="currentlyReading"
-              selected={categorySelected === 'currentlyReading'}
+              selected={shelf === 'currentlyReading'}
             >
               Currently Reading
             </TabGroupItem>
             <TabGroupItem
-              onClick={this.updateCategory}
+              onClick={onUpdateShelf}
               value="wantToRead"
-              selected={categorySelected === 'wantToRead'}
+              selected={shelf === 'wantToRead'}
             >
               Want to Read
             </TabGroupItem>
             <TabGroupItem
-              onClick={this.updateCategory}
+              onClick={onUpdateShelf}
               value="read"
-              selected={categorySelected === 'read'}
+              selected={shelf === 'read'}
             >
               Read
             </TabGroupItem>
@@ -49,7 +42,7 @@ class Books extends PureComponent {
             </Link>
           </TabGroup>
         </div>
-        <BookList title="" books={books[categorySelected]} onSelect={onSelect} />
+        <BookList books={books} isLoading={isLoading} onSelect={onUpdateBook} />
       </div>
     )
   }
