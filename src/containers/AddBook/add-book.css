@@ -18,13 +18,13 @@
 .add-book-header__back-button {
   background-color: transparent;
   margin-right: 2rem;
-  border: 1px solid black;
+  border: 1px solid #677592;
   outline: none;
   font-family: "Nunito";
   border-radius: 4px;
   width: 100px;
   height: 50px;
-  color: #000;
+  color: #677592;
   cursor: pointer;
   display: flex;
   font-weight: 800;

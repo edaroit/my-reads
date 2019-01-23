@@ -22,6 +22,7 @@
   opacity: 0.5;
 }
 
-.book-information__select {
-  align-self: baseline;
+.book-information__button-group {
+  align-self: center;
+  margin-top: 6rem;
 }

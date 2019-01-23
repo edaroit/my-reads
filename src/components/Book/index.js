@@ -21,7 +21,7 @@ const Book = ({
       <span className="book-information__authors">
         {authors.join(', ')}
       </span>
-      <ButtonGroup>
+      <ButtonGroup className="book-information__button-group">
         <ButtonGroupItem selected={shelf === 'none'} onClick={() => onSelect(id, 'none')}>
           None
         </ButtonGroupItem>

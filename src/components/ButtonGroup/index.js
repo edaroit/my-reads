@@ -12,8 +12,8 @@ export const ButtonGroupItem = ({ selected, onClick, children }) => (
   </div>
 )
 
-const ButtonGroup = ({ children }) => (
-  <div className="button-group">
+const ButtonGroup = ({ className, children }) => (
+  <div className={cn('button-group', className && className)}>
     {children}
   </div>
 )
