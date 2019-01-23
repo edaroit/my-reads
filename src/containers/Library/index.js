@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
-import Books from '../Books'
+import Books from '../../components/Books'
 import AddBook from '../AddBook'
 
 import * as BooksAPI from '../../BooksAPI'
