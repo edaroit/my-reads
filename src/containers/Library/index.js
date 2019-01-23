@@ -14,7 +14,7 @@ class Library extends Component {
       read: [],
     },
     isLoading: true,
-    shelf: null,
+    shelf: 'currentlyReading',
   }
 
   componentDidMount() {
