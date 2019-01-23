@@ -1,5 +1,6 @@
 import React from 'react'
 
+import ButtonGroup, { ButtonGroupItem } from '../ButtonGroup'
 import Title from '../Title'
 
 import './book.css'
@@ -20,16 +21,20 @@ const Book = ({
       <span className="book-information__authors">
         {authors.join(', ')}
       </span>
-      <select
-        className="book-information__select"
-        defaultValue={shelf}
-        onChange={event => onSelect(id, event.target.value)}
-      >
-        <option value="none">None</option>
-        <option value="currentlyReading">Currently Reading</option>
-        <option value="wantToRead">Want to Read</option>
-        <option value="read">Read</option>
-      </select>
+      <ButtonGroup>
+        <ButtonGroupItem selected={shelf === 'none'} onClick={() => onSelect(id, 'none')}>
+          None
+        </ButtonGroupItem>
+        <ButtonGroupItem selected={shelf === 'currentlyReading'} onClick={() => onSelect(id, 'currentlyReading')}>
+          Currently Reading
+        </ButtonGroupItem>
+        <ButtonGroupItem selected={shelf === 'wantToRead'} onClick={() => onSelect(id, 'wantToRead')}>
+          Want to Read
+        </ButtonGroupItem>
+        <ButtonGroupItem selected={shelf === 'read'} onClick={() => onSelect(id, 'read')}>
+          Read
+        </ButtonGroupItem>
+      </ButtonGroup>
     </div>
   </div>
 )
