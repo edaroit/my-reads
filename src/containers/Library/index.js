@@ -21,7 +21,7 @@ class Library extends Component {
     this.fetchBooks()
   }
 
-  fetchBooks = async (shelf = 'currentlyReading') => {
+  fetchBooks = async () => {
     const books = await BooksAPI.getAll()
     const currentlyReading = books.filter(book => book.shelf === 'currentlyReading')
     const wantToRead = books.filter(book => book.shelf === 'wantToRead')
@@ -29,16 +29,14 @@ class Library extends Component {
     this.setState({
       books: { currentlyReading, wantToRead, read },
       isLoading: false,
-      shelf,
     })
   }
 
-  updateBook = (bookId, shelf) => {
-    this.setState({ isLoading: true }, async () => {
-      const book = await BooksAPI.get(bookId)
-      await BooksAPI.update(book, shelf)
-      this.fetchBooks(shelf)
-    })
+  updateBook = async (bookId, shelf) => {
+    this.setState({ shelf, isLoading: true })
+    const book = await BooksAPI.get(bookId)
+    await BooksAPI.update(book)
+    this.fetchBooks(shelf)
   }
 
   updateShelf = (shelf) => {
