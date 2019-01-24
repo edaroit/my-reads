@@ -3,7 +3,8 @@
   background: #fff;
   min-width: inherit;
   max-width: inherit;
-  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
   padding-bottom: 1rem;
 }
 
