@@ -12,7 +12,7 @@ const BookList = ({ books, isLoading, onSelect }) => (
       {
         isLoading
           ? <Loader />
-          : books.map(book => (<Book key={book.id} {...book} onSelect={onSelect} />))
+          : books.map(book => (<Book key={book.id} book={book} onSelect={onSelect} />))
       }
     </div>
   </Card>
