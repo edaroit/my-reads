@@ -1,10 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import cn from 'classnames'
 
 import './side-bar.css'
 
 const SideBar = ({ onClick, shelf }) => (
   <aside className="side-bar">
+    <Link className="side-bar__button" to="/search">
+      Add a Book
+    </Link>
     <span
       className={cn('side-bar__item', shelf === 'currentlyReading' && 'side-bar__item--selected')}
       onClick={() => onClick('currentlyReading')}
