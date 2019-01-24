@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
-import BookList from '../../components/BookList'
-import SideBar from '../../components/SideBar'
+import Shelves from '../../components/Shelves'
 import AddBook from '../AddBook'
 
 import * as BooksAPI from '../../BooksAPI'
@@ -49,31 +48,21 @@ class Library extends Component {
     }, 500)
   }
 
-  booksFromShelf = () => {
-    const { books, shelf } = this.state
-    const filter = allBooks => selectedShelf => (
-      allBooks.filter(book => book.shelf === selectedShelf)
-    )
-    const filterBy = filter(books)
-
-    return filterBy(shelf)
-  }
-
   render() {
     const { books, isLoading, shelf } = this.state
-    const booksFromShelf = this.booksFromShelf()
 
     return (
       <div>
-        <SideBar shelf={shelf} onClick={this.updateShelf} />
         <Route
           exact
           path="/"
           render={() => (
-            <BookList
-              books={booksFromShelf}
+            <Shelves
+              books={books}
+              shelf={shelf}
               isLoading={isLoading}
-              onSelect={this.updateBook}
+              onBookSelect={this.updateBook}
+              onShelfSelect={this.updateShelf}
             />
           )}
         />
