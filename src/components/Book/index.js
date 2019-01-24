@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ButtonGroup, { ButtonGroupItem } from '../ButtonGroup'
+import Icon from '../Icon'
 import Title from '../Title'
 
 import './book.css'
@@ -26,16 +27,16 @@ const Book = ({ book, onSelect }) => {
         </span>
         <ButtonGroup className="book-information__button-group">
           <ButtonGroupItem selected={shelf === 'none'} onClick={() => onSelect(book, 'none')}>
-            None
+            <Icon name="heart" />
           </ButtonGroupItem>
           <ButtonGroupItem selected={shelf === 'currentlyReading'} onClick={() => onSelect(book, 'currentlyReading')}>
-            Currently Reading
+            <Icon name="book" />
           </ButtonGroupItem>
           <ButtonGroupItem selected={shelf === 'wantToRead'} onClick={() => onSelect(book, 'wantToRead')}>
-            Want to Read
+            <Icon name="heart" />
           </ButtonGroupItem>
           <ButtonGroupItem selected={shelf === 'read'} onClick={() => onSelect(book, 'read')}>
-            Read
+            <Icon name="archive" />
           </ButtonGroupItem>
         </ButtonGroup>
       </div>

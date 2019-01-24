@@ -4,12 +4,12 @@
   border: 1px solid #698afe;
   border-radius: .25rem;
   align-items: center;
-  height: 1.875rem;
+  height: 2.875rem;
   width: 30rem;
 }
 
 .button-group__item {
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   flex: 1 1;
   height: 100%;
   display: flex;
@@ -17,8 +17,6 @@
   align-items: center;
   background-color: initial;
   color: #698afe;
-  font-size: 14px;
-  font-weight: 400;
   letter-spacing: -.0275rem;
   line-height: 1.1875rem;
   cursor: pointer;
