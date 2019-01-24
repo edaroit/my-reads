@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
 import BookList from '../../components/BookList'
+import SideBar from '../../components/SideBar'
 import AddBook from '../AddBook'
 
 import * as BooksAPI from '../../BooksAPI'
@@ -64,6 +65,7 @@ class Library extends Component {
 
     return (
       <div>
+        <SideBar shelf={shelf} onClick={this.updateShelf} />
         <Route
           exact
           path="/"
