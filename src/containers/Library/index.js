@@ -20,27 +20,25 @@ class Library extends Component {
   fetchBooks = async () => {
     const books = await BooksAPI.getAll()
 
-    this.setState({
-      books,
-      isLoading: false,
-    })
+    this.setState({ books, isLoading: false })
   }
 
-  updateBook = (book, shelf) => {
-    const updatedShelf = shelf === 'none' ? 'currentlyReading' : shelf
+  updateBook = async (book, shelf) => {
+    this.setState(currentState => ({
+      isLoading: true,
+      shelf: shelf === 'none' ? currentState.shelf : shelf,
+    }))
 
-    this.setState({ isLoading: true, shelf: updatedShelf }, async () => {
-      await BooksAPI.update(book, shelf)
-      const updatedBook = {
-        ...book,
-        shelf,
-      }
+    await BooksAPI.update(book, shelf)
+    const updatedBook = {
+      ...book,
+      shelf,
+    }
 
-      this.setState(currentState => ({
-        books: currentState.books.filter(b => b.id !== updatedBook.id).concat(updatedBook),
-        isLoading: false,
-      }))
-    })
+    this.setState(currentState => ({
+      books: currentState.books.filter(b => b.id !== updatedBook.id).concat(updatedBook),
+      isLoading: false,
+    }))
   }
 
   updateShelf = (shelf) => {
