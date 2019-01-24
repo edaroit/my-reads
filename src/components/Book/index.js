@@ -27,7 +27,7 @@ const Book = ({ book, onSelect }) => {
         </span>
         <ButtonGroup className="book-information__button-group">
           <ButtonGroupItem selected={shelf === 'none'} onClick={() => onSelect(book, 'none')}>
-            <Icon name="heart" />
+            <Icon name="none" />
           </ButtonGroupItem>
           <ButtonGroupItem selected={shelf === 'currentlyReading'} onClick={() => onSelect(book, 'currentlyReading')}>
             <Icon name="book" />
