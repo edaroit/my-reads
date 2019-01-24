@@ -8,11 +8,7 @@ import * as BooksAPI from '../../BooksAPI'
 
 class Library extends Component {
   state = {
-    books: {
-      currentlyReading: [],
-      wantToRead: [],
-      read: [],
-    },
+    books: [],
     isLoading: true,
     shelf: 'currentlyReading',
   }
@@ -23,23 +19,38 @@ class Library extends Component {
 
   fetchBooks = async () => {
     const books = await BooksAPI.getAll()
-    const filter = allBooks => shelf => allBooks.filter(book => book.shelf === shelf)
-    const filterBy = filter(books)
-    const currentlyReading = filterBy('currentlyReading')
-    const wantToRead = filterBy('wantToRead')
-    const read = filterBy('read')
 
     this.setState({
-      books: { currentlyReading, wantToRead, read },
+      books,
       isLoading: false,
     })
   }
 
-  updateBook = async (bookId, shelf) => {
-    this.setState({ shelf, isLoading: true })
-    const book = await BooksAPI.get(bookId)
-    await BooksAPI.update(book)
-    this.fetchBooks(shelf)
+  booksFrom = (shelf) => {
+    const { books } = this.state
+    const filter = allBooks => selectedShelf => (
+      allBooks.filter(book => book.shelf === selectedShelf)
+    )
+    const filterBy = filter(books)
+
+    return filterBy(shelf)
+  }
+
+  updateBook = (book, shelf) => {
+    const updatedShelf = shelf === 'none' ? 'currentlyReading' : shelf
+
+    this.setState({ isLoading: true, shelf: updatedShelf }, async () => {
+      await BooksAPI.update(book, shelf)
+      const updatedBook = {
+        ...book,
+        shelf,
+      }
+
+      this.setState(currentState => ({
+        books: currentState.books.filter(b => b.id !== updatedBook.id).concat(updatedBook),
+        isLoading: false,
+      }))
+    })
   }
 
   updateShelf = (shelf) => {
@@ -51,8 +62,7 @@ class Library extends Component {
 
   render() {
     const { books, isLoading, shelf } = this.state
-    const booksFromShelf = books[shelf]
-    const addedBooks = [...books.currentlyReading, ...books.wantToRead, ...books.read]
+    const booksFromShelf = this.booksFrom(shelf)
 
     return (
       <div>
@@ -74,9 +84,9 @@ class Library extends Component {
           path="/search"
           render={({ history }) => (
             <AddBook
-              addedBooks={addedBooks}
-              onSelect={(bookId, shelfSelected) => {
-                this.updateBook(bookId, shelfSelected)
+              addedBooks={books}
+              onSelect={(book, shelfSelected) => {
+                this.updateBook(book, shelfSelected)
                 history.push('/')
               }}
             />
