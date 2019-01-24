@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { debounce } from 'lodash'
 
 import BookList from '../../components/BookList'
+import Icon from '../../components/Icon'
 import SearchBar from '../../components/SearchBar'
 
 import * as BooksAPI from '../../BooksAPI'
@@ -50,7 +51,7 @@ class AddBook extends Component {
       <div className="add-book">
         <div className="add-book-header">
           <Link className="add-book-header__back-button" to="/">
-            Back
+            <Icon name="arrow-back" />
           </Link>
           <SearchBar className="add-book-header__search-bar" onChange={this.handleChange} />
         </div>
