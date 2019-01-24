@@ -26,16 +26,6 @@ class Library extends Component {
     })
   }
 
-  booksFrom = (shelf) => {
-    const { books } = this.state
-    const filter = allBooks => selectedShelf => (
-      allBooks.filter(book => book.shelf === selectedShelf)
-    )
-    const filterBy = filter(books)
-
-    return filterBy(shelf)
-  }
-
   updateBook = (book, shelf) => {
     const updatedShelf = shelf === 'none' ? 'currentlyReading' : shelf
 
@@ -62,7 +52,6 @@ class Library extends Component {
 
   render() {
     const { books, isLoading, shelf } = this.state
-    const booksFromShelf = this.booksFrom(shelf)
 
     return (
       <div>
@@ -71,7 +60,7 @@ class Library extends Component {
           path="/"
           render={() => (
             <Books
-              books={booksFromShelf}
+              books={books}
               shelf={shelf}
               isLoading={isLoading}
               onUpdateBook={this.updateBook}
