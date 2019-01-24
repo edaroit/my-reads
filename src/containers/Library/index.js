@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
-import Books from '../../components/Books'
+import BookList from '../../components/BookList'
 import AddBook from '../AddBook'
 
 import * as BooksAPI from '../../BooksAPI'
@@ -48,8 +48,19 @@ class Library extends Component {
     }, 500)
   }
 
+  booksFromShelf = () => {
+    const { books, shelf } = this.state
+    const filter = allBooks => selectedShelf => (
+      allBooks.filter(book => book.shelf === selectedShelf)
+    )
+    const filterBy = filter(books)
+
+    return filterBy(shelf)
+  }
+
   render() {
     const { books, isLoading, shelf } = this.state
+    const booksFromShelf = this.booksFromShelf()
 
     return (
       <div>
@@ -57,12 +68,10 @@ class Library extends Component {
           exact
           path="/"
           render={() => (
-            <Books
-              books={books}
-              shelf={shelf}
+            <BookList
+              books={booksFromShelf}
               isLoading={isLoading}
-              onUpdateBook={this.updateBook}
-              onUpdateShelf={this.updateShelf}
+              onSelect={this.updateBook}
             />
           )}
         />
