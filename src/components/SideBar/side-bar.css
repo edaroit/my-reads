@@ -1,13 +1,17 @@
 .side-bar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 100vh;
   position: fixed;
   left: 0;
   width: 15rem;
   padding-left: 3rem;
   background: #fff;
+}
+
+.side-bar__action {
+  align-self: center;
+  margin: 15rem 0 5rem 0;
 }
 
 .side-bar__button {
@@ -36,6 +40,7 @@
 
 
 .side-bar__item {
+  align-self: center;
   font-family: 'Nunito';
   color: #698afe;
   cursor: pointer;
