@@ -8,6 +8,9 @@ import './side-bar.css'
 
 const SideBar = ({ onClick, shelf }) => (
   <aside className="side-bar">
+    <div className="side-bar__logo">
+      <Icon name="logo" fontSize={10} unit="rem" />
+    </div>
     <div className="side-bar__action">
       <Link className="side-bar__button" to="/search">
         <Icon name="add" />

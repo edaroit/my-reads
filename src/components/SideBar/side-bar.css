@@ -5,13 +5,18 @@
   position: fixed;
   left: 0;
   width: 15rem;
-  padding-left: 3rem;
   background: #fff;
+}
+
+.side-bar__logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
 }
 
 .side-bar__action {
   align-self: center;
-  margin: 15rem 0 5rem 0;
+  margin: 5rem 0;
 }
 
 .side-bar__button {
