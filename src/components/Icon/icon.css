@@ -4,25 +4,31 @@
 }
 
 .icon-add {
-  background: url('../../images/icon-add.svg')
+  background: url('../../images/icon-add.svg');
+  background-size: cover;
 }
 
 .icon-archive {
-  background: url('../../images/icon-archive.svg')
+  background: url('../../images/icon-archive.svg');
+  background-size: cover;
 }
 
 .icon-back {
-  background: url('../../images/icon-back.svg')
+  background: url('../../images/icon-arrow-back.svg');
+  background-size: cover;
 }
 
 .icon-book {
-  background: url('../../images/icon-book.svg')
+  background: url('../../images/icon-book.svg');
+  background-size: cover;
 }
 
 .icon-heart {
-  background: url('../../images/icon-heart.svg')
+  background: url('../../images/icon-heart.svg');
+  background-size: cover;
 }
 
 .icon-search {
-  background: url('../../images/icon-search.svg')
+  background: url('../../images/icon-search.svg');
+  background-size: cover;
 }

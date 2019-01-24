@@ -38,14 +38,19 @@
   max-height: 40px;
 }
 
-
 .side-bar__item {
+  display: flex;
   align-self: center;
+  align-items: center;
   font-family: 'Nunito';
   color: #698afe;
   cursor: pointer;
   font-size: 1.25rem;
   font-weight: 600;
+}
+
+.side-bar__item > .icon {
+  margin-right: 1rem;
 }
 
 .side-bar__item--selected {
