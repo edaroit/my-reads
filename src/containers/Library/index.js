@@ -23,9 +23,12 @@ class Library extends Component {
 
   fetchBooks = async () => {
     const books = await BooksAPI.getAll()
-    const currentlyReading = books.filter(book => book.shelf === 'currentlyReading')
-    const wantToRead = books.filter(book => book.shelf === 'wantToRead')
-    const read = books.filter(book => book.shelf === 'read')
+    const filter = allBooks => shelf => allBooks.filter(book => book.shelf === shelf)
+    const filterBy = filter(books)
+    const currentlyReading = filterBy('currentlyReading')
+    const wantToRead = filterBy('wantToRead')
+    const read = filterBy('read')
+
     this.setState({
       books: { currentlyReading, wantToRead, read },
       isLoading: false,
