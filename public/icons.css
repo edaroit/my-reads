@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?f1yyo2');
+  src:  url('fonts/icomoon.eot?f1yyo2#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?f1yyo2') format('truetype'),
+    url('fonts/icomoon.woff?f1yyo2') format('woff'),
+    url('fonts/icomoon.svg?f1yyo2#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-empty-state .path1:before {
+  content: "\e906";
+  color: rgb(230, 230, 230);
+}
+.icon-empty-state .path2:before {
+  content: "\e907";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-empty-state .path3:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(204, 204, 204);
+}
+.icon-empty-state .path4:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(242, 242, 242);
+}
+.icon-empty-state .path5:before {
+  content: "\e90a";
+  margin-left: -1em;
+  color: rgb(242, 242, 242);
+}
+.icon-empty-state .path6:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(204, 204, 204);
+}
+.icon-empty-state .path7:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(204, 204, 204);
+}
+.icon-empty-state .path8:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(230, 230, 230);
+}
+.icon-empty-state .path9:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(230, 230, 230);
+}
+.icon-empty-state .path10:before {
+  content: "\e911";
+  margin-left: -1em;
+  color: rgb(179, 179, 179);
+}
+.icon-empty-state .path11:before {
+  content: "\e912";
+  margin-left: -1em;
+  color: rgb(179, 179, 179);
+}
+.icon-logo:before {
+  content: "\e90b";
+}
+.icon-none:before {
+  content: "\e90c";
+}
+.icon-add:before {
+  content: "\e900";
+}
+.icon-archive:before {
+  content: "\e901";
+}
+.icon-arrow-back:before {
+  content: "\e902";
+}
+.icon-book:before {
+  content: "\e903";
+}
+.icon-heart:before {
+  content: "\e904";
+}
+.icon-search:before {
+  content: "\e905";
+}

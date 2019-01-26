@@ -1,0 +1,7 @@
+.empty-state {
+  margin: auto;
+  height: 100vh;
+  width: 300px;
+  background: url(/static/media/empty-state.0bf5d0aa.svg) no-repeat center;
+  background-size: 300px 300px;
+}

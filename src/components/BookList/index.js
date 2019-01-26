@@ -1,21 +1,22 @@
 import React from 'react'
 
 import Book from '../Book'
-import Card from '../Card'
-import Loader from '../Loader'
+import EmptyState from '../EmptyState'
 
 import './book-list.css'
 
-const BookList = ({ books, isLoading, onSelect }) => (
-  <Card>
+const BookList = ({ books, onSelect, hasEmptyState }) => {
+  const hasBooks = books.length > 0
+
+  return (
     <div className="book-list">
       {
-        isLoading
-          ? <Loader />
-          : books.map(book => (<Book key={book.id} book={book} onSelect={onSelect} />))
+        hasBooks
+          ? books.map(book => (<Book key={book.id} book={book} onSelect={onSelect} />))
+          : hasEmptyState && <EmptyState />
       }
     </div>
-  </Card>
-)
+  )
+}
 
 export default BookList

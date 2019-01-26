@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
-import Books from '../../components/Books'
+import Shelves from '../../components/Shelves'
 import AddBook from '../AddBook'
 
 import * as BooksAPI from '../../BooksAPI'
@@ -57,12 +57,12 @@ class Library extends Component {
           exact
           path="/"
           render={() => (
-            <Books
+            <Shelves
               books={books}
               shelf={shelf}
               isLoading={isLoading}
-              onUpdateBook={this.updateBook}
-              onUpdateShelf={this.updateShelf}
+              onBookSelect={this.updateBook}
+              onShelfSelect={this.updateShelf}
             />
           )}
         />
