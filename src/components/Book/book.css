@@ -6,6 +6,10 @@
   padding-bottom: 1rem;
 }
 
+.book:last-child {
+  margin-bottom: 3.5rem;
+}
+
 .book-information {
   flex: 1;
   display: flex;
