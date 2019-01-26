@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ButtonGroup, { ButtonGroupItem } from '../ButtonGroup'
+import Card from '../Card'
 import Icon from '../Icon'
 import Title from '../Title'
 
@@ -12,7 +13,7 @@ const Book = ({ book, onSelect }) => {
   } = book
 
   return (
-    <div className="book">
+    <Card className="book">
       <figure>
         {
           imageLinks && <img src={imageLinks.thumbnail} alt="Book" />
@@ -40,7 +41,7 @@ const Book = ({ book, onSelect }) => {
           </ButtonGroupItem>
         </ButtonGroup>
       </div>
-    </div>
+    </Card>
   )
 }
 
