@@ -23,7 +23,7 @@ const Shelves = ({
     {
       isLoading
         ? <Loader />
-        : <BookList books={booksFromShelf(books, shelf)} onSelect={onBookSelect} />
+        : <BookList books={booksFromShelf(books, shelf)} onSelect={onBookSelect} hasEmptyState />
     }
   </div>
 )

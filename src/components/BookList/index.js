@@ -5,7 +5,7 @@ import EmptyState from '../EmptyState'
 
 import './book-list.css'
 
-const BookList = ({ books, onSelect }) => {
+const BookList = ({ books, onSelect, hasEmptyState }) => {
   const hasBooks = books.length > 0
 
   return (
@@ -13,7 +13,7 @@ const BookList = ({ books, onSelect }) => {
       {
         hasBooks
           ? books.map(book => (<Book key={book.id} book={book} onSelect={onSelect} />))
-          : <EmptyState />
+          : hasEmptyState && <EmptyState />
       }
     </div>
   )
