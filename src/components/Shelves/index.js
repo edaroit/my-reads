@@ -1,6 +1,7 @@
 import React from 'react'
 
 import BookList from '../BookList'
+import Loader from '../Loader'
 import SideBar from '../SideBar'
 
 import './shelves.css'
@@ -19,7 +20,11 @@ const Shelves = ({
 }) => (
   <div className="shelves">
     <SideBar shelf={shelf} onClick={onShelfSelect} />
-    <BookList books={booksFromShelf(books, shelf)} isLoading={isLoading} onSelect={onBookSelect} />
+    {
+      isLoading
+        ? <Loader />
+        : <BookList books={booksFromShelf(books, shelf)} onSelect={onBookSelect} />
+    }
   </div>
 )
 

@@ -2,13 +2,12 @@ import React from 'react'
 
 import Book from '../Book'
 import EmptyState from '../EmptyState'
-import Loader from '../Loader'
 
 import './book-list.css'
 
-const BookList = ({ books, isLoading, onSelect }) => {
-  if (isLoading) return <Loader />
+const BookList = ({ books, onSelect }) => {
   const hasBooks = books.length > 0
+
   return (
     <div className="book-list">
       {
